@@ -1,0 +1,437 @@
+:root {
+    --primary: #ff007a;
+    --secondary: #7000ff;
+    --accent: #00d4ff;
+    --glass: rgba(255, 255, 255, 0.1);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Outfit', sans-serif;
+    background-color: #050505; /* Deep dark background */
+    color: white;
+    overflow-x: hidden;
+}
+
+/* Colorful background blob */
+.blob {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    filter: blur(100px);
+    border-radius: 50%;
+    z-index: -1;
+    top: -100px;
+    right: -100px;
+    opacity: 0.6;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 10%;
+    align-items: center;
+}
+
+.logo { font-weight: 800; font-size: 1.5rem; }
+.logo span { color: var(--primary); }
+
+ul { list-style: none; display: flex; gap: 30px; }
+a { color: white; text-decoration: none; font-weight: 300; }
+
+/* This groups your sections so they stack vertically and don't overlap */
+.hero, 
+.about-section, 
+.projects-section {
+    position: relative; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Keeps your text centered */
+    justify-content: center; 
+    width: 100%;
+    min-height: 100vh; /* This ensures each section fills the screen */
+    padding: 100px 10%;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Gradient Text Effect */
+.gradient-text {
+    font-size: 5rem;
+    font-weight: 800;
+    background: linear-gradient(to right, #ff007a, #7000ff, #00d4ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+}
+
+/* Glassmorphism Cards */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 50px 10%;
+}
+
+.glass-card {
+    background: var(--glass);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 20px;
+    transition: transform 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent);
+}
+
+/* Animated Button */
+.btn-primary {
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    padding: 15px 35px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: 0.3s;
+    box-shadow: 0 10px 20px rgba(255, 0, 122, 0.3);
+}
+
+.btn-primary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(255, 0, 122, 0.5);
+}
+/* About Section Styling */
+
+
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.about-text { flex: 2; }
+.about-text h2 { font-size: 3rem; margin-bottom: 20px; }
+.about-text p { font-size: 1.1rem; line-height: 1.8; color: #cbd5e1; }
+
+.skills-chips {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.skills-chips span {
+    background: var(--glass);
+    padding: 8px 15px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    border: 1px solid var(--accent);
+}
+
+.photo-placeholder {
+    width: 250px;
+    height: 250px;
+    background: linear-gradient(45deg, var(--secondary), var(--accent));
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; /* Funky unique shape */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    font-weight: 800;
+}
+
+
+
+.projects-section h2 { font-size: 3rem; margin-bottom: 40px; }
+
+.project-tag {
+    color: var(--accent);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.project-link {
+    display: inline-block;
+    margin-top: 20px;
+    color: var(--primary);
+    font-weight: 600;
+}
+.profile-container {
+    margin-bottom: 20px; /* Space between photo and "Hey there" */
+    display: flex;
+    justify-content: center;
+}
+
+/* Find where you styled the profile image and update it */
+.profile-pic {
+    width: 250px; /* MUCH BIGGER! Try this and adjust as needed. */
+    height: 250px; /* Keep this the SAME as the width for a perfect circle */
+    
+    object-fit: cover; /* ESSENTIAL: This makes the image crisp and fills the circle without stretching. */
+    
+    border-radius: 50%; /* Keeps it a circle */
+    
+    /* Let's make that colorful border and glow match your new size! */
+    border: 4px solid #00d4ff; /* Uses your bright turquoise color */
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.4); /* soft turquoise glow */
+    
+    transition: transform 0.3s ease-in-out; /* Smooth hover effect */
+}
+
+/* Optional: Slight interaction when you hover */
+.profile-pic:hover {
+    transform: scale(1.05); /* Minimal zoom on hover */
+}
+/* 1. Reset everything so they stack like blocks */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #050505;
+    color: white;
+    font-family: sans-serif;
+}
+
+/* 2. Fix the Photo Quality */
+.profile-pic {
+    width: 260px;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #00d4ff;
+    box-shadow: 0 0 25px rgba(0, 212, 255, 0.6);
+    
+    image-rendering: high-quality; 
+    
+    
+    /* Ensures the image doesn't shift the layout while loading */
+    display: block; 
+}
+
+.profile-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+/* 3. Give each section its own space */
+.hero, .about-section, .projects-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    padding: 0px 20px;
+    position: relative;
+    gap: 20px
+}
+.subtitle-container {
+    max-width: 800px;       /* Prevents the text from stretching too wide */
+    margin: 0 auto;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #cbd5e1;
+    margin: 0;             /* Reset margins to let the 'gap' handle spacing */
+}
+.about-section {
+    min-height: 80vh;
+    display: flex;
+    align-items: center; /* Centers the whole block on the screen */
+    padding: 80px 10%;
+    background: #050505;
+}
+
+.about-section {
+    padding: 80px 10%;
+    display: flex;
+    justify-content: center; /* Centers the whole block */
+    background: #050505;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    max-width: 1100px; /* Keeps text from stretching too wide */
+    width: 100%;
+}
+
+.about-text {
+    flex: 1;
+    text-align: left;
+}
+
+.about-image {
+    flex: 0 0 250px; /* Keeps the NV icon at a fixed size */
+}
+.about-text h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #cbd5e1;
+}
+
+.about-image {
+    flex: 1;               /* Makes the icon area smaller than the text */
+    display: flex;
+    justify-content: center;
+}
+
+.photo-placeholder {
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(45deg, #7000ff, #00d4ff);
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    font-weight: 800;
+    color: white;
+    box-shadow: 0 10px 30px rgba(112, 0, 255, 0.3);
+}
+.contact-section {
+    padding: 100px 10%;
+    text-align: center;
+    background: #0a0a0a;
+}
+
+.contact-subtitle {
+    margin-bottom: 50px;
+    color: #cbd5e1;
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+}
+
+.contact-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.contact-item:hover {
+    transform: translateY(-10px);
+    border-color: #00d4ff;
+    background: rgba(0, 212, 255, 0.05);
+}
+
+.contact-item .icon {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.contact-item h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #00d4ff;
+}
+
+.contact-item p a {
+    color: white;
+    text-decoration: none;
+    font-weight: 300;
+}
+
+.contact-item p a:hover {
+    color: #ff007a;
+}
+.education-section {
+    padding: 100px 10%;
+    text-align: center;
+}
+
+.education-section h2 {
+    font-size: 3rem;
+    margin-bottom: 50px;
+}
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 50px auto;
+    padding-left: 40px; /* Space for the vertical line */
+}
+
+/* The glowing vertical line */
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--primary), var(--accent));
+    box-shadow: 0 0 15px var(--accent);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 50px;
+    text-align: left;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -47px; /* Centers dot on the line */
+    top: 20px;
+    width: 16px;
+    height: 16px;
+    background: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--accent);
+}
+
+.timeline-date {
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.timeline-card {
+    padding: 25px !important;
+    transition: 0.3s ease;
+}
+
+.school-name {
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.timeline-card:hover {
+    border-color: var(--primary);
+    transform: translateX(10px);
+}
+.skill-container {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    margin: 10px 0;
+}
