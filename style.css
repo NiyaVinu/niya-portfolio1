@@ -435,3 +435,8 @@ body {
     border-radius: 10px;
     margin: 10px 0;
 }
+p {
+    line-height: 1.6;        /* Adds space between lines of text */
+    margin-bottom: 20px;    /* Adds space between different paragraphs */
+    color: rgba(255, 255, 255, 0.8); /* Makes text slightly softer to read */
+}
